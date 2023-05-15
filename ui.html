@@ -1,0 +1,63 @@
+<!-- figma plugin's deisgn system -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/thomas-lowry/figma-plugin-ds/dist/figma-plugin-ds.css">
+<!-- local styles -->
+<style>
+  body {
+    padding: 8px;
+  }
+
+  textarea {
+    border-radius: 4px;
+    width: 100%;
+    resize: none;
+    padding: 8px;
+    height: calc(100vh - 122px);
+  }
+
+  .button-box {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+    gap: 12px;
+    flex: 6 4;
+  }
+
+  .intext-link {
+    color: var(--blue);
+    cursor: pointer;
+  }
+
+  .intext-link:hover {
+    text-decoration: underline;
+  }
+</style>
+<textarea id="address" class="textarea" placeholder="Paste your font class and color variables css style here."></textarea>
+<p class="onboarding-tip__msg">Convert CSS variables to Figma styles effortlessly. Paste code, extract colors, create Figma styles. Achieve design consistency easily. Created by <a href="https://www.kenpan.design/?utm_source=figma-plugin" target="_blank" class="intext-link">Ken Pan</a>.</p>
+
+<div class="button-box">
+  <button id="cancel" class="button button--secondary">Cancel</button>
+  <button id="create" class="button
+   button--primary">Create Figma Style </button>
+
+</div>
+
+<script>
+  document.getElementById('create').onclick = () => {
+    const textarea = document.getElementById('address');
+    const text = textarea.value;
+    parent.postMessage({
+      pluginMessage: {
+        type: 'check-css-text',
+        text
+      }
+    }, '*');
+  };
+
+  document.getElementById('cancel').onclick = () => {
+    parent.postMessage({
+      pluginMessage: {
+        type: 'cancel'
+      }
+    }, '*');
+  };
+</script>
