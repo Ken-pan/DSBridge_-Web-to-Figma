@@ -1,7 +1,12 @@
 # Figma CSS Variables Plugin
 
-## Overview
+## Description
 This Figma plugin allows you to convert CSS variables into Figma styles. The plugin reads CSS text and processes it to extract color variables and categories. It then applies these values to create new Figma styles.
+
+## Author
+
+- Name: Ken Pan
+- Email: [jpan28@id.iit.edu](mailto:jpan28@id.iit.edu)
 
 ## Features
 - Convert CSS color variables into Figma paint styles
